@@ -1,0 +1,11 @@
+[INFO  - 2016-04-13T00:02:49.622Z] GhostDriver - Main - running on port 49232
+[INFO  - 2016-04-13T00:02:49.904Z] Session [0f93c7b0-010b-11e6-a8b8-5d19dfa57de6] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2016-04-13T00:02:49.904Z] Session [0f93c7b0-010b-11e6-a8b8-5d19dfa57de6] - page.customHeaders:  - {}
+[INFO  - 2016-04-13T00:02:49.904Z] Session [0f93c7b0-010b-11e6-a8b8-5d19dfa57de6] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"mac-10.11 (El Capitan)-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2016-04-13T00:02:49.904Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 0f93c7b0-010b-11e6-a8b8-5d19dfa57de6
+events.js:85
+      throw er; // Unhandled 'error' event
+            ^
+Error: read EIO
+    at exports._errnoException (util.js:746:11)
+    at TTY.onread (net.js:559:26)
