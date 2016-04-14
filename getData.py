@@ -7,6 +7,14 @@ from twilio.rest import TwilioRestClient
 
 baseURL = "http://toronto.virginradio.ca/"
 
+with open("authentication.txt", "r") as f:
+    array = []
+    for line in f:
+        array.append(line.rstrip())
+
+account_sid = array[0]
+auth_token = array[1]
+client = TwilioRestClient(account_sid, auth_token)
 
 def logData (logText):
     print logText
@@ -18,31 +26,23 @@ def sendMessage(phoneNumber, bodyText):
     message = client.messages.create(to=phoneNumber, from_="+12898035279", body=bodyText)
 
 def getSong():
-    driver = webdriver.PhantomJS() # or add to your PATH
+    driver = webdriver.PhantomJS('/usr/local/bin/phantomjs') # or add to your PATH
     driver.set_window_size(1024, 768) # optional
     driver.get(baseURL)
-    driver.save_screenshot('screen.png') # save a screenshot to disk
+    # driver.save_screenshot('screen.png') # save a screenshot to disk
     element = driver.find_element_by_id("mh_txtSong")
-    return element.text
+    return element.text.lower()
 
 
 def main():
     bodyText = ""
     print "main starting"
-    with open("authentication.txt", "r") as f:
-        array = []
-        for line in f:
-            array.append(line.rstrip())
 
-    account_sid = array[0]
-    auth_token = array[1]
-
-    client = TwilioRestClient(account_sid, auth_token)
     currentlyPlaying = getSong()
     if 'sorry' in currentlyPlaying:
-        bodyText = "Money time: " + element.text.lower() + " is playing!\n"
-        # sendMessage("6475232602", bodyText)
-        # sendMessage("2263784509", bodyText)
+        bodyText = "Money time: '" + currentlyPlaying + "' is playing!. 416-872-9999 .\n"
+        sendMessage("6475232602", bodyText)
+        sendMessage("2263784509", bodyText)
         logData(bodyText)
 
     else:
